@@ -52,18 +52,34 @@
     --primary-color: #ffe1db;
     --secondary-color: #F87C63;
     --light-color: #f9f9f9;
+    --light-color2: #ffe1db;
     --dark-color: #333;
     --translucent-color: rgba(255, 255, 255, 0.8);
+    --pure-white: #FFFFFF;
+    --light-gray: #def3f3;
+    --medium-gray: #A1A1A1;
+    --confirm-color: #a0dc8a91;
+    --link-hover-color: cornflowerblue;
     /* Layout Colors */
     --header-footer-background-color: var(--translucent-color);
     --background-color: var(--light-color);
     --highlight-background-color: var(--primary-color);
     --button-background: var(--secondary-color);
+    --button-hover-active-bkgd: var(--confirm-color);
+    --button-border-boxshadow: var(--dark-color);
+    --tarief-card-border: var(--light-gray);
+    --tarief-card-boxshadow: var(--medium-gray);
     /* Typography*/
+    --icon-color: var(--secondary-color);
+    --icon-color-hero-quote: var(--pure-white);
     --navigation-accent: var(--secondary-color);
     --text-color: var(--dark-color);
     --hero-text-color: var(--light-color);
     --font-family: 'Quicksand';
+    --input-bkgd-color: var(--pure-white);
+    --input-focus-color: var(--secondary-color);
+    --input-text-color: var(--dark-color);
+    --button-text: var(--dark-color);
   }
 }
 @layer resetstyles {
@@ -103,7 +119,7 @@
     cursor: pointer;
   }
   .privacy:hover {
-    color: cornflowerblue;
+    color: var(--link-hover-color);
   }
 }
 @layer pagestyles {
@@ -144,10 +160,10 @@
     height: 15rem;
     padding: 1rem 1rem;
     margin-bottom: 4rem;
-    border: 1px solid rgb(222, 243, 243);
+    border: 1px solid var(--tarief-card-border);
     border-radius: 1.5rem;
     backdrop-filter: blur(10px);
-    box-shadow: 10px 5px 5px #A1A1A1;
+    box-shadow: 10px 5px 5px var(--tarief-card-boxshadow);
     text-align: center;
   }
   .contact-section {
@@ -318,6 +334,7 @@
     align-items: center;
     padding-left: 0.5rem;
   }
+  /* styles for the list (ul element) of the hamburger menu */
   .site-links {
     position: fixed;
     top: 0;
@@ -341,13 +358,6 @@
   .site-links li svg {
     margin-right: 0.5rem;
   }
-  .hamburger {
-    display: block;
-    position: absolute;
-    right: 0;
-    top: 0;
-    margin: 0.8rem 0.6rem 0 0;
-  }
   /* Site Footer */
   footer {
     width: 100%;
@@ -363,9 +373,6 @@
   }
   footer a {
     margin-right: 1rem;
-  }
-  footer a:hover {
-    color: var(--secondary-color);
   }
 }
 @layer componentstyles {
@@ -397,29 +404,33 @@
     /* Important for touch devices */
     touch-action: manipulation;
   }
-
-  .button {
-    width: 10.5rem;
+  /* styles for action buttons in tarieven section and contact section */
+  .button-action {
     display: inline-block;
-    text-transform: uppercase;
-    padding: 1rem;
-    font-size: 1rem;
+    background-color: var(--button-background);
+    border: 2px solid var(--button-border-boxshadow);
+    border-radius: 2rem;
+    box-shadow: var(--button-border-boxshadow) 4px 4px 0 0;
+    color: var(--button-text);
+    font-weight: 600;
+    font-size: 1.2rem;
+    padding: 0 1rem;
+    line-height: 3rem;
     text-align: center;
     text-decoration: none;
-    color: var(--text-color);
-    transition: opacity 1s ease;
-    background-color: var(--button-background);
-    background-image: radial-gradient(93% 87% at 87% 89%, rgb(255, 42, 0) 0%, transparent 86.18%), radial-gradient(66% 87% at 26% 20%, rgba(255, 255, 255, 0.41) 0%, rgba(255, 255, 255, 0) 69.79%, rgba(255, 255, 255, 0) 100%);
-    border: 1px solid #fc6446;
-    border-radius: 2rem;
-  }
-  .button:hover {
-    opacity: 0.75;
+    user-select: none;
+    -webkit-user-select: none;
     cursor: pointer;
   }
-  .button:active {
-    transform: scale(0.95);
+  .button-action:hover {
+    background-color: var(--button-hover-active-bkgd);
   }
+  .button-action:active {
+    transition: transform 200ms ease-out;
+    box-shadow: var(--button-border-boxshadow) 2px 2px 0 0;
+    transform: translate(2px, 2px);
+  }
+  /* Container for contact button and thankyou page redirect */
   .nu-boeken {
     width: 100%;
     display: flex;
@@ -427,13 +438,10 @@
     align-items: center;
     margin-top: 2rem;
   }
+  /* styles for close button in hamburger menu */
   .nav-button {
     display: flex;
     align-items: center;
-    padding: 0;
-    background-color: transparent;
-    border: none;
-    font-family: 'quicksand';
     font-weight: 600;
     font-size: 1.3rem;
     margin: 1rem auto;
@@ -452,9 +460,9 @@
     padding: 0.6rem 1rem;
     border: none;
     border-radius: 2rem;
-    background-color: white;
+    background-color: var(--input-bkgd-color);
     box-shadow: none;
-    color: #333;
+    color: var(--input-text-color);
   }
   .radio {
     display: flex;
@@ -466,18 +474,32 @@
     margin-right: 0.5rem;
   }
   input:focus {
-    border: 2px solid #F87C63;
+    border: 2px solid var(--input-focus-color);
     outline: none;
   }
   /* Icons */
+  /* general icon style */
   .size-6 {
     width: 2rem;
     height: 2rem;
-    color: #F87C63;
+    color: var(--icon-color);
   }
+  /* styles for the hamburger icon */
+  .hamburger {
+    display: block;
+    position: absolute;
+    right: 0;
+    top: 0;
+    margin: 1rem 0.6rem 0 0;
+  }
+  .hamburger:hover {
+    transform: scale(1.10);
+  }
+  /* Styles for features and contact text icons */
   h3 .size-6 {
     margin-right: 0.8rem;
   }
+  /* styles for icons in hero quote */
   p .size-6 {
     width: 1rem;
     height: 1rem;
@@ -485,8 +507,9 @@
     justify-content: center;
     align-items: center;
     margin: 0 0.2rem;
-    color: #FFFFFF;
+    color: var(--icon-color-hero-quote);
   }
+  /* styles for icons in contact message form */
   label .size-6 {
     width: 1.5rem;
     height: 1.5rem;
@@ -562,7 +585,6 @@
       width: 50%;
       height: 100%;
       padding-right: 5rem;
-      background-color: #ffe1db;
     }
     .contact-form {
       width: 50%;
