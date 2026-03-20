@@ -1,0 +1,645 @@
+/* Created Powerfully Website */
+/* ==========================
+   Site Stylesheet
+   1. Font @face
+   2. CSS Custom Properties
+   3. Reset Styles
+   4. Global Styles
+   5. Typography Styles
+   6. Structure Styles
+   7. Module Styles
+   8. Component Styles
+   9. Page Styles
+   10. Media Queries
+   ========================== */
+@layer fontface {
+  /* quicksand-regular - latin */
+  @font-face {
+    font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+    font-family: 'Quicksand';
+    font-style: normal;
+    font-weight: 400;
+    src: url('./assets/fonts/quicksand-v37-latin-regular.woff2') format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+  }
+  /* quicksand-500 - latin */
+  @font-face {
+    font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+    font-family: 'Quicksand';
+    font-style: normal;
+    font-weight: 500;
+    src: url('./assets/fonts/quicksand-v37-latin-500.woff2') format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+  }
+  /* quicksand-600 - latin */
+  @font-face {
+    font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+    font-family: 'Quicksand';
+    font-style: normal;
+    font-weight: 600;
+    src: url('./assets/fonts/quicksand-v37-latin-600.woff2') format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+  }
+  /* quicksand-700 - latin */
+  @font-face {
+    font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+    font-family: 'Quicksand';
+    font-style: normal;
+    font-weight: 700;
+    src: url('./assets/fonts/quicksand-v37-latin-700.woff2') format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+  }
+}
+@layer customproperties {
+  :root {
+    /* Color Palette */
+    --primary-color: #ffe1db;
+    --secondary-color: #F87C63;
+    --light-color: #f9f9f9;
+    --dark-color: #333;
+    --translucent-color: rgba(255, 255, 255, 0.8);
+    /* Layout Colors */
+    --header-footer-background-color: var(--translucent-color);
+    --background-color: var(--light-color);
+    --highlight-background-color: var(--primary-color);
+    --button-background: var(--secondary-color);
+    /* Typography*/
+    --navigation-accent: var(--secondary-color);
+    --text-color: var(--dark-color);
+    --hero-text-color: var(--light-color);
+    --font-family: 'Quicksand';
+  }
+}
+@layer resetstyles {
+  *,
+  *::before,
+  *::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    border: none;
+    text-decoration: none;
+    list-style: none;
+    letter-spacing: 1px;
+  }
+}
+@layer globalstyles {
+  html, body {
+    width: 100%;
+    min-height: 100%;
+    position: relative;
+    background-color: var(--background-color);
+    font-family: var(--font-family), sans-serif;
+    font-size: 16px;
+    color: var(--text-color);
+    line-height: 1.6;
+    scroll-behavior: smooth;
+    margin: 0;
+  }
+  /* Links */
+  a {
+    font-weight: 600;
+    color: var(--text-color);
+    transition: text-decoration 4s ease;
+  }
+  a:hover {
+    text-decoration: underline;
+    cursor: pointer;
+  }
+  .privacy:hover {
+    color: cornflowerblue;
+  }
+}
+@layer pagestyles {
+  main {
+    padding-top: 4rem; /* keeps content below fixed header */
+    min-height: 100vh;
+  }
+  /* Section Containers */
+  .hero-section {
+    position: relative;
+    min-height: 75vh;
+    overflow: hidden;
+  }
+  .features-section {
+    min-height: auto;
+    background-color: var(--highlight-background-color);
+  }
+  .features-card {
+    height: 100%;
+    margin-bottom: 2rem;
+    text-align: center;
+  }
+  .features-card:last-child {
+    margin-bottom: 0;
+  }
+  .tarieven-section {
+    min-height: auto;
+  }
+  .tarief-wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 2rem;
+  }
+  .tarief-card {
+    width: 18rem;
+    height: 15rem;
+    padding: 1rem 1rem;
+    margin-bottom: 4rem;
+    border: 1px solid rgb(222, 243, 243);
+    border-radius: 1.5rem;
+    backdrop-filter: blur(10px);
+    box-shadow: 10px 5px 5px #A1A1A1;
+    text-align: center;
+  }
+  .contact-section {
+    background-color: var(--highlight-background-color);
+  }
+  .contact-text p {
+    text-align: justify;
+  }
+  .form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: start;
+    padding: 2rem 0 0;
+  }
+  .radio-wrapper {
+    padding-left: 0.5rem;
+    margin-bottom: 0.5rem;
+  }
+  .over-mij-text {
+    margin-bottom: 2.5rem;
+  }
+  .hartelijk-dank {
+    padding: 0 10%;
+  }
+}
+@layer typographystyles {
+  h1 {
+    font-weight: 700;
+    font-size: 2rem;
+  }
+  h2 {
+    font-weight: 600;
+    font-size: 2.5rem;
+    margin-bottom: 0.1rem;
+    color: var(--hero-text-color);
+  }
+  h3 {
+    font-weight: 500;
+    font-size: 1.4rem;
+  }
+  article h3 {
+    margin-bottom: 1rem;
+  }
+  h4 {
+    font-weight: 600;
+    font-size: 1.1rem;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .beroep-titel {
+    font-weight: 500;
+    font-size: 1.7rem;
+    line-height: 1;
+    margin-bottom: 0.5rem;
+    color: var(--hero-text-color);
+  }
+  .hero-quote {
+    width: 100%;
+    font-size: 0.8rem;
+    color: var(--hero-text-color);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .intro {
+    font-weight: 600;
+    font-size: 0.9rem;
+    margin: 0 0 2rem;
+    display: flex;
+    padding: 0 10%;
+    text-align: justify;
+  }
+  .features-titel {
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    margin-bottom: 1rem;
+  }
+  .tarief-titel {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 1rem;
+  }
+  .tarief-text {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+  }
+  .contact-titel {
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    margin-bottom: 1rem;
+  }
+  .form-label {
+    font-weight: 600;
+    font-size: 1rem;
+    margin-bottom: 0.5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .consent {
+    padding-left: 0.5rem;
+    font-size: 0.7rem;
+  }
+  .consent input {
+    margin-right: 0.5rem;
+  }
+}
+@layer imagesstyles {
+  img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+  }
+  .hero-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+}
+@layer structurestyles {
+  .flex-column {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  .on-top { z-index: 500; }
+  .mt-1 { margin-top: 1rem; }
+  .mb-1 { margin-bottom: 1rem; }
+  .wd-100 { width: 100%; }
+  .h-100 { height: 100%; }
+  .psection { padding: 2rem 10%; } /* padding for each section */
+  .psection-alternate { padding: 2rem 0; } /* padding alternative with no side padding for sections */
+  .pmodules10 { padding: 10%; } /* padding for modules over mij and doelstellingen */
+}
+@layer modulestyles {
+  /* Site Navigation */
+  header {
+    width: 100%;
+    height: 4rem;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    background-color: var(--header-footer-background-color);
+    backdrop-filter: blur(10px);
+    text-align: center;
+  }
+  nav {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    position: relative;
+    justify-content: center;
+    align-items: center;
+    padding-left: 0.5rem;
+  }
+  .site-links {
+    position: fixed;
+    top: 0;
+    right: 0;
+    z-index: 1000;
+    transition: ease-in-out 250ms;
+  }
+  .site-links a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: 600;
+    font-size: 1.3rem;
+    margin: 1rem 0;
+  }
+  .site-links a:hover {
+    transform: scale(1.15);
+    transition: ease-in 0.20s;
+    color: var(--navigation-accent);
+  }
+  .site-links li svg {
+    margin-right: 0.5rem;
+  }
+  .hamburger {
+    display: block;
+    position: absolute;
+    right: 0;
+    top: 0;
+    margin: 0.8rem 0.6rem 0 0;
+  }
+  /* Site Footer */
+  footer {
+    width: 100%;
+    max-width: 100%;
+    height: 4rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--header-footer-background-color);
+    backdrop-filter: blur(10px);
+    padding: 0.8rem;
+    font-size: 0.6rem;
+  }
+  footer a {
+    margin-right: 1rem;
+  }
+  footer a:hover {
+    color: var(--secondary-color);
+  }
+}
+@layer componentstyles {
+  .button {
+    width: 10.5rem;
+    display: inline-block;
+    text-transform: uppercase;
+    padding: 1rem;
+    font-size: 1rem;
+    text-align: center;
+    text-decoration: none;
+    color: var(--text-color);
+    transition: opacity 1s ease;
+    background-color: var(--button-background);
+    background-image: radial-gradient(93% 87% at 87% 89%, rgb(255, 42, 0) 0%, transparent 86.18%), radial-gradient(66% 87% at 26% 20%, rgba(255, 255, 255, 0.41) 0%, rgba(255, 255, 255, 0) 69.79%, rgba(255, 255, 255, 0) 100%);
+    border: 1px solid #fc6446;
+    border-radius: 2rem;
+  }
+  .button:hover {
+    opacity: 0.75;
+    cursor: pointer;
+  }
+  .button:active {
+    transform: scale(0.95);
+  }
+  .nu-boeken {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 2rem;
+  }
+  .nav-button {
+    display: flex;
+    align-items: center;
+    padding: 0;
+    background-color: transparent;
+    border: none;
+    font-family: 'quicksand';
+    font-weight: 600;
+    font-size: 1.3rem;
+    margin: 1rem auto;
+    cursor: pointer;
+  }
+  .nav-button:hover {
+    transform: scale(1.15);
+    transition: ease-in 0.20s;
+    color: var(--navigation-accent);
+    text-decoration: underline;
+  }
+  .input {
+    width: 100%;
+    height: 2.5rem;
+    margin-bottom: 1rem;
+    padding: 0.6rem 1rem;
+    border: none;
+    border-radius: 2rem;
+    background-color: white;
+    box-shadow: none;
+    color: #333;
+  }
+  .radio {
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    margin-bottom: 0.5rem;
+  }
+  .radio input {
+    margin-right: 0.5rem;
+  }
+  input:focus {
+    border: 2px solid #F87C63;
+    outline: none;
+  }
+  /* Icons */
+  .size-6 {
+    width: 2rem;
+    height: 2rem;
+    color: #F87C63;
+  }
+  h3 .size-6 {
+    margin-right: 0.8rem;
+  }
+  p .size-6 {
+    width: 1rem;
+    height: 1rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 0.2rem;
+    color: #FFFFFF;
+  }
+  label .size-6 {
+    width: 1.5rem;
+    height: 1.5rem;
+    margin-right: 0.5rem;
+  }
+}
+@layer mediaqueries {
+  /* Adjusts positioning of elements in nav for small screens */
+  @media(max-width: 450px) {
+    .hamburger {
+      margin: 0.9rem 0.6rem 0 0;
+    }
+  }
+  /* Adjusts positioning of hamburger icon for tablet screens */
+  @media(min-width: 768px) {
+    .hamburger {
+      margin: 0.8rem 1rem 0 0;
+    }
+    .tarieven-section {
+      padding: 4rem 0;
+    }
+  }
+  @media(max-width: 1279px) {
+    /* Properties for collapsable sidebar for mobile device screens */
+    .site-links {
+      height: 100vh;
+      width: 0; /* 0 width - changed with JavaScript */
+      position: fixed;
+      z-index: 1000;
+      top: 0;
+      right: 0;
+      background-color: var(--background-color);
+      overflow-x: hidden; /* Disable horizontal scroll */
+      padding-top: 4rem;
+      transition: 0.5s;
+      font-size: 1.5rem;
+    }
+  }
+  /* Adjusts layout for large screen sizes */
+  @media(min-width: 1280px) {
+    .features-section {
+      padding: 4rem 10%;
+    }
+    .features-highlight {
+      display: flex;
+      padding: 2rem 0 0;
+    }
+    .features-card {
+      width: 20rem;
+      margin-right: 7rem;
+    }
+    .features-card:last-child {
+      margin-right: 0;
+    }
+    .tarieven-section {
+      padding: 4rem 10%;
+    }
+    .tarief-wrapper {
+      flex-direction: row;
+    }
+    .tarief-card {
+      margin-right: 4rem;
+    }
+    .tarief-card:last-child {
+      margin-right: 0;
+    }
+    .contact-section {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .contact-text {
+      width: 50%;
+      height: 100%;
+      padding-right: 5rem;
+      background-color: #ffe1db;
+    }
+    .contact-form {
+      width: 50%;
+    }
+    .over-mij {
+      width: 100%;
+      height: 100%;
+      flex-direction: row;
+      padding: 4% 10%;
+    }
+    .over-mij-text {
+      width: 50%;
+      padding: 0 5rem;
+    }
+    .over-mij-foto {
+      width: 50%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: start;
+    }
+    .doelstelling {
+      width: 100%;
+      height: 100%;
+      padding: 10%;
+    }
+    h1 {
+      font-size: 2.4rem;
+      width: 30%;
+      display: flex;
+      justify-content: flex-start;
+    }
+    h2 {
+      font-size: 3rem;
+      margin-bottom: 0rem;
+    }
+    .beroep-titel {
+      font-size: 2rem;
+    }
+    .hero-quote {
+      font-size: 1rem;
+    }
+    .site-links {
+      width: 70% !important;
+      height: 100%;
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+    }
+    .hamburger {
+      display: none;
+    }
+    .hide-close {
+      display: none;
+    }
+    .hide-text {
+      display: none;
+    }
+    nav {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      justify-content: left;
+      align-items: center;
+      padding: 0 0.8rem;
+    }
+    li {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-right: 0.5rem;
+    }
+    li svg {
+      width: 1.2rem;
+      height: 1.2rem;
+      margin: 0 0.5rem;
+    }
+    li a {
+      font-size: 0.85rem;
+    }
+    footer{
+      font-size: 0.9rem;
+    }
+  }
+  @media(min-width: 1440px) {
+    h1 {
+      font-size: 2.4rem;
+    }
+  }
+  /* Adjustments for very large monitor screens */
+  @media(min-width: 1660px) {
+    header {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    li {
+      margin-right: 1rem;
+    }
+    li svg {
+      width: 2rem;
+      height: 2rem;
+      margin: 0 0.5rem;
+    }
+    li a {
+      font-size: 1rem;
+    }
+  }
+}
