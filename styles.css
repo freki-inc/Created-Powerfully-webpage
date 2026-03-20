@@ -443,6 +443,8 @@
   .nav-button {
     display: flex;
     align-items: center;
+    background-color: transparent;
+    color: var(--text-color);
     font-weight: 600;
     font-size: 1.3rem;
     margin: 1rem auto;
@@ -492,6 +494,7 @@
     right: 0;
     top: 0;
     margin: 1rem 0.6rem 0 0;
+    background-color: transparent;
   }
   .hamburger:hover {
     transform: scale(1.10);
