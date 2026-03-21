@@ -19,10 +19,14 @@
   /* Set the width of the sidebar to 500px and the right margin of the page content to 500px */
   function openNav() {
     document.getElementById("site-links").style.width = "100%";
+    document.getElementById("openButton").ariaExpanded = true;
+    document.getElementById("site-links").ariaHidden = false;
   }
   /* Set the width of the sidebar to 0 and the right margin of the page content to 0 */
   function closeNav() {
     document.getElementById("site-links").style.width = "0px";
+    document.getElementById("openButton").ariaExpanded = false;
+    document.getElementById("site-links").ariaHidden = true;
   }
   // ========== Utility Function ==========
   // Dutch localization
