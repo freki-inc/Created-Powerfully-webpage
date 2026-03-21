@@ -303,6 +303,10 @@
     justify-content: center;
     align-items: center;
   }
+  .unselectable { 
+    user-select: none;
+    -webkit-user-select: none;
+  }
   .on-top { z-index: 500; }
   .mt-1 { margin-top: 1rem; }
   .mb-1 { margin-bottom: 1rem; }
@@ -330,9 +334,9 @@
     height: 100%;
     display: flex;
     position: relative;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: center;
-    padding-left: 0.5rem;
+    padding-left: 0.4rem;
   }
   /* styles for the list (ul element) of the hamburger menu */
   .site-links {
@@ -493,7 +497,7 @@
     position: absolute;
     right: 0;
     top: 0;
-    margin: 1rem 0.6rem 0 0;
+    margin: 1rem 0.4rem 0 0;
     background-color: transparent;
   }
   .hamburger:hover {
@@ -521,16 +525,21 @@
   }
 }
 @layer mediaqueries {
-  /* Adjusts positioning of elements in nav for small screens */
-  @media(max-width: 450px) {
+  /* Adjusts positioning of hero quote for very small screens */
+  @media(max-width: 380px) {
     .hamburger {
-      margin: 0.9rem 0.6rem 0 0;
+      width: 1.8rem;
+      height: 1.8rem;
+    }
+    .hero-quote {
+      width: 75%;
+      text-align: center;
     }
   }
   /* Adjusts positioning of hamburger icon for tablet screens */
-  @media(min-width: 768px) {
-    .hamburger {
-      margin: 0.8rem 1rem 0 0;
+  @media(min-width: 700px) {
+    nav {
+      justify-content: center;
     }
     .tarieven-section {
       padding: 4rem 0;
